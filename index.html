@@ -5,27 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Color</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" crossorigin="anonymous" href="style.css">
     <script src="index.js" defer></script>
 </head>
-<body class="bg-dark text-white my-3 mx-5">
-    <h1>Clareie ou escureça cores com JS</h1>
-    <div class="formOptions">
-        <div class="selectColor">
-            <label class="p-0">Cor:</label>
-            <input class="form-control form-control-color"
-                type="color" data-color>
+<body>
+    <header>
+        <img src="https://abrir.link/3UDSY" alt="">
+        <h1>Change Color</h1>
+        <p>Lighten or darken your color with JavaScript.</p>
+    </header>
+    <main>
+        <div class="formOptions">
+            <div class="selectColor">
+                <div class="control">
+                    <label>Color:</label>
+                    <input type="color" data-color>
+                </div>
+                <div class="control">
+                    <label>Rudeness:</label>
+                    <input type="range" id="range" value="10" min="1"
+                        max="30" oninput="rangeNumber.value=value"/>
+                    <input type="number" id="rangeNumber" min="1"
+                        max="30" value="10" oninput="range.value=value">
+                </div>
+            </div>
+            <div class="buttons">
+                <button data-lighten>Lighten</button>
+                <button data-darken>Darken</button>
+            </div>
         </div>
-        <div class="buttons">
-            <button class="btn btn-success" data-lighten>Clarear</button>
-            <button class="btn btn-success" data-darken>Escurecer</button>
+        <div class="results">
+            <h3></h3>
+            <ul></ul>
         </div>
-    </div>
-    <div class="results">
-        <h3></h3>
-        <ul></ul>
-    </div>
+    </main>
+    <footer>
+        Created by <a href="https://github.com/Vanortton">Vanortton</a>
+    </footer>
 </body>
 </html>
