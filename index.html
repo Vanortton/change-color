@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" crossorigin="anonymous" href="style.css">
     <script src="index.js" defer></script>
 </head>
+
 <body>
     <header>
         <img src="https://abrir.link/3UDSY" alt="">
@@ -22,11 +24,9 @@
                     <input type="color" data-color>
                 </div>
                 <div class="control">
-                    <label>Rudeness:</label>
-                    <input type="range" id="range" value="10" min="1"
-                        max="30" oninput="rangeNumber.value=value"/>
-                    <input type="number" id="rangeNumber" min="1"
-                        max="30" value="10" oninput="range.value=value">
+                    <label>Saute:</label>
+                    <input type="range" id="range" value="10" min="1" max="100" oninput="rangeNumber.value=value" />
+                    <input type="number" id="rangeNumber" min="1" max="100" value="10" oninput="range.value=value">
                 </div>
             </div>
             <div class="buttons">
@@ -38,9 +38,11 @@
             <h3></h3>
             <ul></ul>
         </div>
+        <div class="alerts"></div>
     </main>
     <footer>
         Created by <a href="https://github.com/Vanortton">Vanortton</a>
     </footer>
 </body>
+
 </html>
