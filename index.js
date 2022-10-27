@@ -146,7 +146,7 @@ function showColors({ arrReduceValue = 0, regra, per100Value, messageText }) {
 If you think something is wrong or that this is a mistake, please contact me:<br>
 - Gmail: vanortton@gmail.com<br>
 - Github repository (issues): <a href="https://github.com/Vanortton/change-color/issues">https://github.com/Vanortton/change-color/issues</a>`,
-                type: 'warn',
+                type: 'danger',
                 timeToHide: 15000
             })
             return
@@ -162,7 +162,7 @@ buttonLighten.onclick = () => {
             title: 'The color is already too light',
             messageHTML: 'It is not possible to lighten the color you chose because it is already too light, to generate a palette choose another color or lighten it instead of darkening it.',
             type: 'warn',
-            timeToHide: 10000
+            timeToHide: 8000
         }) :
     showColors({
         arrReduceValue: 0,
@@ -179,7 +179,7 @@ buttonDarken.onclick = () => {
             title: 'The color is already too dark',
             messageHTML: 'It is not possible to darken the color you chose because it is already too dark, to generate a palette choose another color or lighten it instead of darkening it.',
             type: 'warn',
-            timeToHide: 10000
+            timeToHide: 8000
     }) :
     showColors({
         arrReduceValue: 765,
