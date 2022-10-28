@@ -240,7 +240,6 @@ li {
 li:hover {
   transform: scale(1.5);
   z-index: 1;
-  min-width: 50px;
 }
 
 li:hover::after {
