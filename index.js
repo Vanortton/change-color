@@ -137,7 +137,7 @@ function showColors({ arrReduceValue = 0, regra, per100Value, messageText }) {
 
         i += (numberInput.value - 1)
         numLis++
-        if (numLis > 50) {
+        if (numLis > 60) {
             alertCustom({
                 title: 'Danger when taking action',
                 messageHTML: `To prevent your device from crashing or slowing down, script execution has been stopped.<br>
