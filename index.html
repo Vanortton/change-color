@@ -6,23 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Color</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" crossorigin="anonymous" href="style.css">
-    <script src="index.js" defer></script>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" crossorigin="anonymous" href="css/style.css">
+    <script src="js/alert.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/controls.js" defer></script>
 </head>
 
 <body>
     <header>
-        <img src="https://abrir.link/3UDSY" alt="">
-        <h1>Change Color</h1>
-        <p>Lighten or darken your color with JavaScript.</p>
+        <h1>Gerador de paletas</h1>
+        <p>Gere sua paleta de luz ou de sombras
+            <br />para usar no seu site ou na sua arte.</p>
     </header>
     <main>
         <div class="formOptions">
             <div class="selectColor">
                 <div class="control">
                     <label>Color:</label>
-                    <input type="color" data-color>
+                    <input type="color" data-color value="#f00000">
                 </div>
                 <div class="control">
                     <label>Saute:</label>
@@ -31,8 +33,8 @@
                 </div>
             </div>
             <div class="buttons">
-                <button data-lighten>Lighten</button>
-                <button data-darken>Darken</button>
+                <button type="button" data-lighten>Lighten</button>
+                <button type="button" data-darken>Darken</button>
             </div>
         </div>
         <div class="results">

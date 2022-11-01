@@ -6,6 +6,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background-color: #333;
   display: flex;
   min-width: 100vw;
@@ -218,19 +219,25 @@ input[type="range"]::-ms-track {
   justify-content: space-evenly;
 }
 
+.results {
+  margin-bottom: 37px;
+}
+
 .results h3 {
   text-align: center;
   margin-bottom: 5px;
 }
 
 ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 30px;
   padding: 0%;
-  width: 100%;
 }
 
 li {
-  width: 100%;
+  border-radius: 10px;
   height: 80px;
   display: block;
   transition-delay: 100ms;
@@ -263,7 +270,7 @@ div[data-rgb] {
 }
 
 a {
-  color: white !important;
+  color: white;
 }
 
 .alert {
