@@ -10,25 +10,41 @@ const background = {
     danger: '#700c1f'
 }
 
-function alertCustom({ title, messageHTML, type, timeToHide = 3000 }) {
+function alertCustom({ title, messageHTML, type, timeToHide = 10000 }) {
     const divAllAlerts = document.querySelector('.alerts')
 
     const divAlert = document.createElement('div')
     divAlert.classList.add('alert')
+    divAlert.style.position = 'relative'
     divAlert.style.background = background[`${type}`]
-
+    
     const alertTitle = document.createElement('div')
+    alertTitle.classList.add('d-flex')
+    alertTitle.classList.add('align-items-center')
+    alertTitle.classList.add('mb-2')
     alertTitle.classList.add('alertTitle')
-
+    
     const alertTitleH3 = document.createElement('h3')
+    alertTitleH3.classList.add('m-0')
     alertTitleH3.innerText = title
+
+    const divClose = document.createElement('button')
+    divClose.classList.add('btn-close')
+    divClose.classList.add('btn-close-white')
+    divClose.setAttribute('arial-label', 'Close')
+    divClose.setAttribute('type', 'button')
+    divClose.style.position = 'absolute'
+    divClose.style.top = '8px'
+    divClose.style.right = '8px'
 
     const descriptionAlert = document.createElement('p')
     descriptionAlert.classList.add('description')
+    descriptionAlert.classList.add('m-0')
     descriptionAlert.innerHTML = messageHTML
 
     alertTitle.innerHTML = SVGs[`${type}`]
     alertTitle.appendChild(alertTitleH3)
+    divAlert.appendChild(divClose)
     divAlert.appendChild(alertTitle)
     divAlert.appendChild(descriptionAlert)
     divAllAlerts.appendChild(divAlert)
@@ -42,4 +58,13 @@ function alertCustom({ title, messageHTML, type, timeToHide = 3000 }) {
             divAlert.parentNode.removeChild(divAlert)
         }, 500)
     }, timeToHide)
+    const btnsClose = document.querySelectorAll('button.btn-close')
+    btnsClose.forEach(btn => {
+        btn.onclick = () => {
+            btn.parentNode.style.transform = 'translateX(110%)'
+            setTimeout(() => {
+                btn.parentNode.remove()
+            }, 500)
+        }
+    })
 }

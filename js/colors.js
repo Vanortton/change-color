@@ -3,7 +3,7 @@ const rangeInputs = document.querySelectorAll('input[type="range"]')
 const numberInput = document.querySelector('input[type="number"]')
 const buttonLighten = document.querySelector('button[data-lighten]')
 const buttonDarken = document.querySelector('button[data-darken]')
-const message = document.querySelector('.results h3')
+const message = document.querySelector('.results p')
 const ulToShow = document.querySelector('.results ul')
 
 function hexToRgb(hex) {
@@ -52,6 +52,9 @@ function showColors({ arrReduceValue = 0, regra, per100Value, messageText }) {
 
         const per100 = eval(per100Value)
         const li = document.createElement('li')
+        li.classList.add('col')
+        li.classList.add('d-flex')
+        li.classList.add('align-items-center')
         let arrRGB = changeColor(rgb, per100)
 
         arrRgbReduce = arrRGB.reduce((prev, curr) => prev + curr, 0)
@@ -73,21 +76,38 @@ function showColors({ arrReduceValue = 0, regra, per100Value, messageText }) {
 
         i += (numberInput.value - 1)
         numLis++
-        if (numLis > 60) {
+        if (numLis > 80) {
             alertCustom({
-                title: 'Danger when taking action',
-                messageHTML: `To prevent your device from crashing or slowing down, script execution has been stopped.<br>
-                Unable to create a palette with the color you chose. Try increasing the saute value.<br>
-<br>
-If you think something is wrong or that this is a mistake, please contact me:<br>
-- Gmail: vanortton@gmail.com<br>
-- Github repository (issues): <a href="https://github.com/Vanortton/change-color/issues">https://github.com/Vanortton/change-color/issues</a>`,
+                title: 'Perigo enquanto ação era executada!',
+                messageHTML: `Para evitar que seu dispositivo fique lento ou trave o script foi parado.<br>
+                Por isso não foi possível criar uma paleta com as suas configurações. Tente aumentar o valor do salto ou escolha outra cor.<br>
+                <br>
+                Se o problema persistir, entre em contato comigo:<br>
+                - Gmail: vanortton@gmail.com<br>
+                - Github (issues): <a href="https://github.com/Vanortton/change-color/issues">https://github.com/Vanortton/change-color/issues</a>`,
                 type: 'danger',
                 timeToHide: 15000
             })
             return
         }
     }
-    const datas = document.querySelectorAll('ul li div')
-    // datas.forEach(data => data.style.width = `${Math.floor(97 / datas.length)}vw`)
+
+    const allTexts = document.querySelectorAll('li div[data-rgb]')
+    const arrayColors = []
+    allTexts.forEach(div => {
+        if (arrayColors.indexOf(div.textContent) !== -1) {
+            div.parentNode.remove()
+        } else {
+            arrayColors.push(div.textContent)
+        }
+        let item = div.textContent.replace('rgb(', '')
+        item = item.replace(')', '')
+        item = item.split(', ')
+        item = item.reduce((acc, val) => acc + parseInt(val), 0)
+        if (item >= 412) {
+            div.style.color = 'black'
+        } else if (item < 412) {
+            div.style.color = 'white'
+        }
+    })
 }
