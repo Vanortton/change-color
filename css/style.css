@@ -62,15 +62,15 @@ footer {
 
 .results ul {
   max-width: 540px;
+  grid-gap: 10px;
 }
 
 body .results li.col {
-  min-height: 80px;
   min-width: 80px;
+  min-height: 80px;
   display: block;
   transition: .3s;
   border-radius: 6px;
-  margin: 5px;
 }
 
 body .results li.col:hover {
